@@ -1,0 +1,15 @@
+version: "3"
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4567-4593:4567-4593"
+      - "8080:8080"
+    environment:
+      - SERVICES=s3,lambda,cloudfomation,iam,cloudwatch,logs
+      - DEBUG=1
+      - LAMBDA_EXECUTOR=docker
+  upstream:
+    image: nginx
+    ports:
+      - "8081:80"

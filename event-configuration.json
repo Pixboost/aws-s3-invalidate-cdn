@@ -1,0 +1,9 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "Id": "invalidate-cdn",
+      "LambdaFunctionArn": "arn:aws:lambda:us-east-1:000000000000:function:invalidate-cdn",
+      "Events": ["s3:ObjectCreated:*"]
+    }
+  ]
+}
