@@ -5,6 +5,8 @@ services:
     ports:
       - "4567-4593:4567-4593"
       - "8080:8080"
+    volumes:
+      - //var/run/docker.sock:/var/run/docker.sock
     environment:
       - SERVICES=s3,lambda,cloudfomation,iam,cloudwatch,logs
       - DEBUG=1
