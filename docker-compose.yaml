@@ -8,7 +8,7 @@ services:
     volumes:
       - //var/run/docker.sock:/var/run/docker.sock
     environment:
-      - SERVICES=s3,lambda,cloudfomation,iam,cloudwatch,logs
+      - SERVICES=s3,lambda,cloudformation,iam,cloudwatch,logs
       - DEBUG=1
       - LAMBDA_EXECUTOR=docker
       - LAMBDA_DOCKER_NETWORK=aws-s3-invalidate-cdn_default
