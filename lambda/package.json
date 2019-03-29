@@ -1,0 +1,23 @@
+{
+  "name": "aws-s3-invalidate-cdn",
+  "version": "1.0.0",
+  "description": "Code of lambda function that triggers on creation of objects in S3 bucket and invalidate Pixboost CDN item",
+  "main": "index.js",
+  "scripts": {
+    "build": "jszip -o index.zip index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pixboost/aws-s3-invalidate-cdn.git"
+  },
+  "author": "Pixboost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pixboost/aws-s3-invalidate-cdn/issues"
+  },
+  "homepage": "https://github.com/Pixboost/aws-s3-invalidate-cdn#readme",
+  "devDependencies": {
+    "jszip-cli": "^1.4.24"
+  }
+}
