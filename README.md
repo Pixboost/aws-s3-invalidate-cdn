@@ -1,5 +1,5 @@
 # aws-s3-invalidate-cdn
-AWS Lambda that listens on S3 events and invalidates CDN cache.
+AWS Lambda that listens to S3 events and invalidates Pixboost Images CDN cache.
 
 ## Running Locally
 
@@ -10,7 +10,7 @@ To test:
 
 `aws --endpoint-url=http://localhost:4572 s3 cp image.png s3://images`
 
-Get Logs: 
+Get Lambda Logs: 
 
 `aws --endpoint-url=http://localhost:4586 --region us-east-1 logs describe-log-groups`
 `aws --endpoint-url=http://localhost:4586 --region us-east-1 logs describe-log-streams --log-group-name /aws/lambda/invalidate-cdn`

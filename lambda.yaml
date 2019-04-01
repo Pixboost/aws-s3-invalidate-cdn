@@ -1,3 +1,9 @@
+Parameters:
+  ImagesDomain:
+    Type: String
+  ApiSecret:
+    Type: String
+
 Resources:
   Lambda:
     Type: AWS::Lambda::Function
@@ -9,12 +15,7 @@ Resources:
       Handler: index.handler
       Runtime: nodejs8.10
       Role: arn:aws:iam::123456:role/role-name
-
-  ImagesBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: images
-      NotificationConfiguration:
-        LambdaConfigurations:
-          - Event: "s3:ObjectCreated:*"
-            Function: !Ref Lambda
+      Environment:
+        Variables:
+          IMAGES_DOMAIN: !Ref ImagesDomain
+          API_SECRET: !Ref ApiSecret

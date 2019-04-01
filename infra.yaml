@@ -4,3 +4,7 @@ Resources:
     Properties:
       BucketName: code
 
+  ImagesBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: images
