@@ -1,0 +1,22 @@
+{
+  "predicates": [
+    {
+      "caseSensitive": true,
+      "equals": {
+        "path": "/api/2/img/https://site.com/imahe.png",
+        "method": "DELETE",
+        "query": {
+          "auth": "API-SECRET"
+        }
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "body": {}
+      }
+    }
+  ]
+}
