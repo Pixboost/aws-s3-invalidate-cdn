@@ -4,7 +4,7 @@
   "description": "Test CDN invalidation when user uploads a new image",
   "main": "index.js",
   "scripts": {
-    "test": "mocha *.spec.js"
+    "test": "mocha --opts mocha.opts *.spec.js"
   },
   "author": "",
   "license": "MIT",

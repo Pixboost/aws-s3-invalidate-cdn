@@ -12,6 +12,15 @@ services:
       - DEBUG=1
       - LAMBDA_EXECUTOR=docker
       - LAMBDA_DOCKER_NETWORK=aws-s3-invalidate-cdn_default
+
+  pixboost:
+    image: andyrbell/mountebank
+    ports:
+      - "4545:4545"
+    volumes:
+      - ./pixboost-stubs:/stubs
+    entrypoint: mb start --configfile /stubs/imposters.ejs
+
   upstream:
     image: nginx
     ports:
