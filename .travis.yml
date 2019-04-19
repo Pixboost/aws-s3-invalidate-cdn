@@ -12,6 +12,11 @@ env:
   - AWS_SECRET_KEY="xyz"
   - AWS_REGION="us-east-1"
 
+before_install:
+  - sudo apt-get python3 -y
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+
 script:
   - docker-compose up -d
   - sleep 10
