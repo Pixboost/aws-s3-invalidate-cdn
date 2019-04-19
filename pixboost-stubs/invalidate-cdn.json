@@ -3,7 +3,7 @@
     {
       "caseSensitive": true,
       "equals": {
-        "path": "/api/2/img/https://site.com/imahe.png",
+        "path": "/api/2/img/https://site.com/image.png",
         "method": "DELETE",
         "query": {
           "auth": "API-SECRET"

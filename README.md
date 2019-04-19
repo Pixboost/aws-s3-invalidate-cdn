@@ -8,7 +8,7 @@ AWS Lambda that listens to S3 events and invalidates Pixboost Images CDN cache.
 
 To test:
 
-`aws --endpoint-url=http://localhost:4572 s3 cp image.png s3://images`
+`cd test && npm test`
 
 Get Lambda Logs: 
 

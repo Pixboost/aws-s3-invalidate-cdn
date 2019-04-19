@@ -3,6 +3,8 @@ Parameters:
     Type: String
   ApiSecret:
     Type: String
+  ImageUrlPrefix:
+    Type: String
 
 Resources:
   Lambda:
@@ -19,3 +21,4 @@ Resources:
         Variables:
           IMAGES_DOMAIN: !Ref ImagesDomain
           API_SECRET: !Ref ApiSecret
+          IMAGE_URL_PREFIX: !Ref ImageUrlPrefix

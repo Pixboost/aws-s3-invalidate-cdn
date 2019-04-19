@@ -17,11 +17,7 @@ services:
     image: andyrbell/mountebank
     ports:
       - "4545:4545"
+      - "2525:2525"
     volumes:
       - ./pixboost-stubs:/stubs
     entrypoint: mb start --configfile /stubs/imposters.ejs
-
-  upstream:
-    image: nginx
-    ports:
-      - "8081:80"
