@@ -20,4 +20,7 @@ script:
   - cd test
   - npm ci
   - npm test
+  - docker network ls
   - docker-compose logs
+  - docker ps -a
+  - docker logs $(docker ps -a -f "status=exited" -q)
