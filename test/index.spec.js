@@ -33,7 +33,7 @@ describe('when uploading new file to S3 bucket', () => {
         lastRequest = imposter.requests.pop();
 
         done();
-      }, 5000);
+      }, 10000);
     });
 
     it('should make a request', () => {
