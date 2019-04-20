@@ -10,7 +10,6 @@
   "license": "MIT",
   "devDependencies": {
     "aws-sdk": "^2.439.0",
-    "mocha": "^6.1.3",
-    "mountebank": "^2.0.0"
+    "mocha": "^6.1.3"
   }
 }

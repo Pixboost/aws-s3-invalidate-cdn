@@ -16,11 +16,13 @@ before_install:
 
 script:
   - docker network create invalidatecdn
+  - docker pull lambci/lambda:nodejs8.10
   - sudo docker-compose up -d
   - bash test-env.sh
   - cd test
   - npm ci
   - npm test
+  - sleep 10
   - docker network ls
   - docker-compose logs
   - docker ps -a
