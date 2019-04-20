@@ -17,6 +17,7 @@ before_install:
 script:
   - docker-compose up -d
   - sleep 10
+  - docker-compose logs
   - bash test-env.sh
   - cd test
   - npm ci
