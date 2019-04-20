@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+RETRIES=0
+MAX_RETRIES=10
+
+until [[ `aws --endpoint-url=http://localhost:4581 cloudformation list-stacks --region us-east-1` ]]
+do
+    if [[ ${RETRIES} == ${MAX_RETRIES} ]]; then
+        echo "Localstack is not ready, exiting"
+        exit 1
+    fi
+
+    echo "Localstack is not ready, retrying... ${RETRIES}"
+    RETRIES=$((RETRIES + 1))
+    sleep 2
+done
+
+echo "Localstack is ready, let's start..."
+
 set -e
 
 echo "Deploying Infra..."
