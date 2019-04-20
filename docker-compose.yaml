@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 services:
   localstack:
     image: localstack/localstack:0.9.0
@@ -11,7 +11,9 @@ services:
       - SERVICES=s3,lambda,iam,cloudwatch,logs,cloudformation
       - DEBUG=1
       - LAMBDA_EXECUTOR=docker
-      - LAMBDA_DOCKER_NETWORK=aws-s3-invalidate-cdn_default
+      - LAMBDA_DOCKER_NETWORK=invalidatecdn
+    networks:
+      - invalidatecdn
 
   pixboost:
     image: andyrbell/mountebank:2.0.0
@@ -21,3 +23,9 @@ services:
     volumes:
       - ./pixboost-stubs:/stubs
     entrypoint: mb start --configfile /stubs/imposters.ejs
+    networks:
+      - invalidatecdn
+
+networks:
+  invalidatecdn:
+    name: invalidatecdn
