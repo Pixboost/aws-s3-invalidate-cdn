@@ -15,6 +15,7 @@ before_install:
   - export PATH=$PATH:$HOME/.local/bin
 
 script:
+  - docker network create invalidatecdn
   - docker-compose up -d
   - bash test-env.sh
   - cd test

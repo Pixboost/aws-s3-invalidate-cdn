@@ -3,6 +3,7 @@ AWS Lambda that listens to S3 events and invalidates Pixboost Images CDN cache.
 
 ## Running Locally
 
+* `docker network create invalidatecdn`
 * `docker-compose up`
 * `bash test-env.sh`
 
