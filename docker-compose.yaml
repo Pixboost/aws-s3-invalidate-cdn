@@ -1,7 +1,7 @@
 version: "3"
 services:
   localstack:
-    image: localstack/localstack:0.9.1
+    image: localstack/localstack:0.9.0
     ports:
       - "4567-4593:4567-4593"
       - "8080:8080"
@@ -14,7 +14,7 @@ services:
       - LAMBDA_DOCKER_NETWORK=aws-s3-invalidate-cdn_default
 
   pixboost:
-    image: andyrbell/mountebank
+    image: andyrbell/mountebank:2.0.0
     ports:
       - "4545:4545"
       - "2525:2525"
