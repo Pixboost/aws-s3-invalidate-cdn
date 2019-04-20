@@ -16,7 +16,7 @@ before_install:
 
 script:
   - docker network create invalidatecdn
-  - docker-compose up -d
+  - sudo docker-compose up -d
   - bash test-env.sh
   - cd test
   - npm ci
