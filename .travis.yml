@@ -20,4 +20,4 @@ script:
   - cd test
   - npm ci
   - npm test
-  - docker-compose logs localstack
+  - docker-compose logs
