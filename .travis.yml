@@ -18,7 +18,7 @@ script:
   - docker network create invalidatecdn
   - docker pull lambci/lambda:nodejs8.10
   - docker-compose up -d
-  - bash test-env.sh
+  - bash local-setup.sh
   - cd test
   - npm ci
   - npm test
