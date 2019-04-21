@@ -1,0 +1,30 @@
+# Using separate stack for localstack as it doesn't support
+# inlining code in CF through Code/ZipFile element
+
+Parameters:
+  ImagesDomain:
+    Type: String
+    Default: https://pixboost.com
+  ApiSecret:
+    Type: String
+  ImageUrlPrefix:
+    Type: String
+  LambdaRole:
+    Type: String
+
+Resources:
+  Lambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: code
+        S3Key: index.zip
+      FunctionName: invalidate-cdn
+      Handler: index.handler
+      Runtime: nodejs8.10
+      Role: !Ref LambdaRole
+      Environment:
+        Variables:
+          IMAGES_DOMAIN: !Ref ImagesDomain
+          API_SECRET: !Ref ApiSecret
+          IMAGE_URL_PREFIX: !Ref ImageUrlPrefix

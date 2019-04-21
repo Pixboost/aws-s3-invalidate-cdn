@@ -25,10 +25,16 @@ aws --endpoint-url=http://localhost:4581 cloudformation create-stack --stack-nam
 echo "Deploying Lambda..."
 cd lambda
 npm install
-npm run build
+npm run localstack-zip-code
 cd ..
 aws --endpoint-url=http://localhost:4572 s3 cp lambda/index.zip s3://code
-aws --endpoint-url=http://localhost:4581 cloudformation create-stack --stack-name lambda --template-body file://lambda/cf.yaml --parameters ParameterKey=ImagesDomain,ParameterValue=http://pixboost:4545 ParameterKey=ApiSecret,ParameterValue=API-SECRET ParameterKey=ImageUrlPrefix,ParameterValue=https://site.com --region us-east-1
+aws --endpoint-url=http://localhost:4581 cloudformation create-stack --stack-name lambda --template-body file://lambda/cf.localstack.yaml \
+--parameters \
+ParameterKey=ImagesDomain,ParameterValue=http://pixboost:4545 \
+ParameterKey=ApiSecret,ParameterValue=API-SECRET \
+ParameterKey=ImageUrlPrefix,ParameterValue=https://site.com \
+ParameterKey=LambdaRole,ParameterValue=arn:aws:iam::123456:role/role-name \
+--region us-east-1
 
 echo "Setting up S3 notifications"
 aws --endpoint-url=http://localhost:4572 s3api put-bucket-notification-configuration --bucket images --notification-configuration file://infra/event-configuration.json

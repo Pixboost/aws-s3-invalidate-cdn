@@ -1,0 +1,14 @@
+@startuml
+UserOrProcess -> S3: Uploads an image
+note left
+    Could be a new image
+    or an update to existing.
+end note
+S3 -> Lambda: Triggers notification event
+Lambda -> Pixboost: DELETE /api/2/img/<IMG_URL>?auth=<API_SECRET>
+alt If image was cached
+Pixboost -> Lambda: 202 Accepted. Cache clearing for image been initiated
+else The image hasn't been cached on CDN. Nothing needs to be done
+Pixboost -> Lambda: 200 OK.
+end
+@enduml

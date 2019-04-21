@@ -1,9 +1,12 @@
 Parameters:
   ImagesDomain:
     Type: String
+    Default: https://pixboost.com
   ApiSecret:
     Type: String
   ImageUrlPrefix:
+    Type: String
+  LambdaRole:
     Type: String
 
 Resources:
@@ -11,12 +14,11 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Code:
-        S3Bucket: code
-        S3Key: index.zip
+        ZipFile: __CODE__
       FunctionName: invalidate-cdn
       Handler: index.handler
       Runtime: nodejs8.10
-      Role: arn:aws:iam::123456:role/role-name
+      Role: !Ref LambdaRole
       Environment:
         Variables:
           IMAGES_DOMAIN: !Ref ImagesDomain

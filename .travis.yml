@@ -22,8 +22,9 @@ script:
   - cd test
   - npm ci
   - npm test
-  - sleep 10
-  - docker network ls
-  - docker-compose logs
-  - docker ps -a
-  - docker logs $(docker ps -a -f "status=exited" -q)
+# Debugging
+#  - sleep 5
+#  - docker network ls
+#  - docker-compose logs
+#  - docker ps -a
+#  - docker logs $(docker ps -a -f "status=exited" -q)
