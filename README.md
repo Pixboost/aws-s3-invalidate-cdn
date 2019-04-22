@@ -41,6 +41,7 @@ aws cloudformation create-stack \
   ParameterKey=ApiSecret,ParameterValue=<API-SECRET> \
   ParameterKey=ImageUrlPrefix,ParameterValue=<https://yoursite.com> \
   ParameterKey=LambdaRole,ParameterValue=<RoleArn> \
+  ParameterKey=Debug,ParameterValue=<0|1> \
   --region us-east-1
 ```
 
@@ -60,6 +61,8 @@ parameter should be `https://www.site.com`. Note that Lambda will add `/` betwee
 * LambdaRole - ARN of the IAM role that Lambda will be executed by. Lambda doesn't need
 any special permissions and [this example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html#with-s3-create-execution-role)
 should work.
+
+* Debug - if passed as "1" then will output debug logs
 
 ### Setup S3 to Lambda notification
 

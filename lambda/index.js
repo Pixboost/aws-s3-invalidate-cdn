@@ -3,8 +3,14 @@ const https = require('https');
 const { URL } = require('url');
 const util = require('util');
 
+const debug = (message, ...rest) => {
+  if (process.env.DEBUG === '1') {
+    console.log(message, ...rest);
+  }
+};
+
 exports.handler = (event, context, callback) => {
-  console.log('Running Lambda', event);
+  debug('Running Lambda', event);
 
   const imagePrefix = process.env.IMAGE_URL_PREFIX;
   const apiSecret = process.env.API_SECRET;
@@ -18,7 +24,7 @@ exports.handler = (event, context, callback) => {
     path: `${url.pathname}${url.search}`,
     method: 'DELETE'
   };
-  console.log(`Invalidating ${util.inspect(requestParams)} using [${url.protocol}]`);
+  debug(`Invalidating ${util.inspect(requestParams)} using [${url.protocol}]`);
   const req = client.request(requestParams,
     res => {
       if (res.statusCode !== 200) {

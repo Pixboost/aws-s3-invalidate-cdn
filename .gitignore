@@ -1,3 +1,4 @@
 *.iml
 .idea/
 lambda/index.zip
+lambda/cf.yaml

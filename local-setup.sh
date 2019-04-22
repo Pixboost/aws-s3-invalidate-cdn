@@ -34,6 +34,7 @@ ParameterKey=ImagesDomain,ParameterValue=http://pixboost:4545 \
 ParameterKey=ApiSecret,ParameterValue=API-SECRET \
 ParameterKey=ImageUrlPrefix,ParameterValue=https://site.com \
 ParameterKey=LambdaRole,ParameterValue=arn:aws:iam::123456:role/role-name \
+ParameterKey=Debug,ParameterValue=1 \
 --region us-east-1
 
 echo "Setting up S3 notifications"
